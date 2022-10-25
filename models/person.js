@@ -13,19 +13,12 @@ mongoose.connect(url)
     })
 
 const personSchema = new mongoose.Schema({
-        name: {
-            type: String,
-            minlength: 3,
-        },
-        number: String,
-        _id: Number,
-    })
+    name: {
+        type: String,
+        minlength: 3,
+    },
+    number: String,
+    id: Number,
+})
 
-personSchema.set('toJSON', {
-    transform: (document, returnedObject) => {
-      returnedObject.id = returnedObject._id.toString()
-      delete returnedObject.__v
-    }
-  })
-
-module.exports = mongoose.model('Person', personSchema)
+module.exports = mongoose.model('Person',personSchema)
